@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Caprasimo&family=Maven+Pro&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Caprasimo", cursive;
+  font-family: "Maven Pro", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+input {
+  font-size: inherit;
+  outline: none;
+  border: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+}

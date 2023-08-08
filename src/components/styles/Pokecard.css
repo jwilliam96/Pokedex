@@ -1,0 +1,356 @@
+.pokecard {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 0.7em;
+  border: 0.7em solid #999;
+  cursor: pointer;
+  transition: transform 150ms ease;
+}
+
+.pokecard:hover {
+  transform: scale(1.03);
+}
+
+.pokecard_header {
+  background-color: #999;
+  aspect-ratio: 2;
+  position: relative;
+}
+
+.pokecard_image {
+  position: absolute;
+  width: 60%;
+  left: 50%;
+  transform: translate(-50%);
+  top: 1.5em;
+}
+
+.pokecard_body {
+  padding: 3.5em 1em 2em;
+}
+
+.pokecard_name {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 1.6em;
+  font-weight: 600;
+  margin-bottom: 0.2em;
+}
+
+.pokecard_types {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.pokecard_typename {
+  text-transform: capitalize;
+}
+
+.pokecard_typename:nth-child(2)::before {
+  content: "/";
+  padding-right: 0.7em;
+}
+
+.pokecard_hr {
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+}
+
+.pokecard_stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  gap: 1.5em 0.2em;
+}
+
+.pokecard_stat {
+  display: grid;
+  gap: 0.5em;
+  justify-items: center;
+}
+
+.pokecard_stat_name {
+  font-size: 0.7em;
+  font-style: 300;
+  text-transform: uppercase;
+}
+
+.pokecard_stat_value {
+  font-weight: 500;
+  font-size: 1em;
+}
+
+.fire-gradient {
+  background: linear-gradient(
+    176.37deg,
+    #f96d6f -32.26%,
+    #e35825 22.55%,
+    #e8ae1b 125.72%
+  );
+}
+
+.fire-border {
+  border-color: #ce5f1a;
+}
+
+.fire-color {
+  color: #ce5f1a;
+}
+
+.grass-gradient {
+  background: linear-gradient(
+    178.92deg,
+    #7ec6c5 0.92%,
+    #abdac6 47.96%,
+    #cae099 99.08%
+  );
+}
+
+.grass-border {
+  border: 10px solid #b1dbbc;
+}
+
+.grass-color {
+  color: #416460;
+}
+
+.water-gradient {
+  background: linear-gradient(
+    179.57deg,
+    #133258 -70.14%,
+    #1479fb 56.16%,
+    #82b2f1 214.85%
+  );
+}
+
+.water-border {
+  border: 10px solid #82b2f1;
+}
+
+.water-color {
+  color: #1479fb;
+}
+
+.bug-gradient {
+  background: linear-gradient(
+    177.56deg,
+    #62db60 -58.92%,
+    #3bb039 16.57%,
+    #aaffa8 209.53%
+  );
+}
+
+.bug-border {
+  border: 10px solid #aaffa8;
+}
+
+.bug-color {
+  color: #3bb039;
+}
+
+.normal-gradient {
+  background: linear-gradient(
+    181.51deg,
+    #735259 -6.44%,
+    #bc6b7c 121.95%,
+    #7c3f4c 186.11%
+  );
+}
+
+.normal-border {
+  border: 10px solid #735259;
+}
+
+.normal-color {
+  color: #735259;
+}
+
+.poison-gradient {
+  background: linear-gradient(
+    177.03deg,
+    #5b3184 -11.97%,
+    #a564e3 71.28%,
+    #ce9bff 135.64%
+  );
+}
+
+.poison-border {
+  border: 10px solid #5b3184;
+}
+
+.poison-color {
+  color: #5b3184;
+}
+
+.electric-gradient {
+  background: linear-gradient(
+    179.75deg,
+    #0c1395 -19.96%,
+    #2b319b 43.67%,
+    #7075d9 138.4%
+  );
+}
+
+.electric-border {
+  border: 10px solid #0c1395;
+}
+
+.electric-color {
+  color: #0c1395;
+}
+
+.ground-gradient {
+  background: linear-gradient(
+    179.75deg,
+    #654008 -19.96%,
+    #895c1a 43.67%,
+    #d69638 138.4%
+  );
+}
+
+.ground-border {
+  border: 10px solid #654008;
+}
+
+.ground-color {
+  color: #654008;
+}
+
+.fairy-gradient {
+  background: linear-gradient(
+    179.75deg,
+    #971b45 -19.96%,
+    #c23867 43.67%,
+    #cd7d98 138.4%
+  );
+}
+
+.fairy-border {
+  border: 10px solid #971b45;
+}
+
+.fairy-color {
+  color: #971b45;
+}
+
+.fighting-gradient {
+  background: linear-gradient(
+    176.83deg,
+    #96402a -8.78%,
+    #f1613c 169.09%,
+    #cb735d 242.33%
+  );
+}
+
+.fighting-border {
+  border: 10px solid #96402a;
+}
+
+.fighting-color {
+  color: #96402a;
+}
+
+.rock-gradient {
+  background: linear-gradient(
+    177.03deg,
+    #7e7e7e -11.97%,
+    #8d8d94 57.49%,
+    #d3d3d3 135.64%
+  );
+}
+
+.rock-color {
+  color: #7e7e7e;
+}
+
+.ghost-gradient {
+  background: linear-gradient(
+    177.03deg,
+    #323569 -11.97%,
+    #454aa8 57.49%,
+    #787dda 135.64%
+  );
+}
+.ghost-border {
+  border: 10px solid #323569;
+}
+.ghost-color {
+  color: #323569;
+}
+
+.psychic-gradient {
+  background: linear-gradient(
+    177.03deg,
+    #6c6824 -11.97%,
+    #e0e845 57.49%,
+    #edf15d 135.64%
+  );
+}
+.psychic-border {
+  border: 10px solid #6c6824;
+}
+.psychic-color {
+  color: #6c6824;
+}
+
+.ice-gradient {
+  background: linear-gradient(
+    177.03deg,
+    #6fbedf -11.97%,
+    #64cbf5 47.77%,
+    #bdebfe 136.72%
+  );
+}
+.ice-border {
+  border: 10px solid #6fbedf;
+}
+.ice-color {
+  color: #6fbedf;
+}
+
+.dragon-gradient {
+  background: linear-gradient(
+    179.75deg,
+    #478a93 -19.96%,
+    #56a4ae 43.67%,
+    #a2bec1 138.4%
+  );
+}
+.dragon-border {
+  border: 10px solid #478a93;
+}
+.dragon-color {
+  color: #478a93;
+}
+
+.dark-gradient {
+  background: linear-gradient(
+    177.03deg,
+    #030706 -11.97%,
+    #0d1211 57.49%,
+    #5a5e5d 135.64%
+  );
+}
+.dark-border {
+  border: 10px solid #030706;
+}
+.dark-color {
+  color: #030706;
+}
+
+.steel-gradient {
+  background: linear-gradient(
+    179.75deg,
+    #5e736c -19.96%,
+    #728881 43.67%,
+    #a8a8a8 138.4%
+  );
+}
+.steel-border {
+  border: 10px solid #5e736c;
+}
+.steel-color {
+  color: #5e736c;
+}

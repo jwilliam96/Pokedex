@@ -1,0 +1,25 @@
+.pokeStat {
+  margin: 1.5em 0;
+}
+
+.pokeStat-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pokestat__div {
+  height: 2em;
+  width: 100%;
+  border: 1px solid black;
+  margin: 0.4em 0;
+}
+
+.pokestat__fondo {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #fcd676 -2.25%, #e6901e 133.18%);
+}
+
+.pokeStat__base::after {
+  content: " / 150";
+}

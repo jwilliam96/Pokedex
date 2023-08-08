@@ -1,0 +1,142 @@
+.pokeid-content {
+  width: 100vw;
+}
+
+.pokeid_header {
+  position: relative;
+}
+
+.pokeid_img_title {
+  position: absolute;
+  max-width: 33%;
+  left: 10%;
+  top: 20%;
+}
+.pokeid_img_fondo {
+  width: 100vw;
+}
+
+.pokeid__section {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  max-width: 68.75em;
+  margin: auto;
+  margin-top: 7em;
+  gap: 1.6em;
+}
+
+.pokeid__header {
+  background: linear-gradient(
+    178.92deg,
+    #7ec6c5 0.92%,
+    #abdac6 47.96%,
+    #cae099 99.08%
+  );
+  width: 100%;
+  height: 14em;
+  position: relative;
+}
+
+.card__header_img {
+  width: 20em;
+  height: 23em;
+  position: absolute;
+  left: 50%;
+  top: -70%;
+  transform: translate(-50%);
+}
+
+.pokeid__id {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.pokeid__name {
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 2em;
+}
+
+.pokeid__ul_caract {
+  display: flex;
+  gap: 2em;
+}
+
+.pokeid__caract_span {
+  font-size: 0.8em;
+}
+
+.pokeid__caract_num {
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.pokeid-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pokeid__info__section {
+  width: 50%;
+}
+.pokeid__info_title {
+  text-align: center;
+  margin-bottom: 0.7em;
+  color: #302f2f;
+  font-size: 1.3em;
+  font-weight: bolder;
+}
+.pokeid__info_ul {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.pokeid__info_li {
+  padding: 0.8em 3em;
+  font-weight: 700;
+  text-transform: capitalize;
+  width: 50%;
+  text-align: center;
+}
+
+.pokeid__info--activeOne {
+  background-color: #5b9793;
+  color: white;
+}
+
+.pokeid__info--activeTwo {
+  background-color: #6c3d9a;
+  color: white;
+}
+
+.pokeid_stat {
+  max-width: 68.75em;
+  margin: auto;
+  margin-top: 3em;
+}
+.pokeid__stat_name {
+  padding: 0.6em 0;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.move__title {
+  font-size: 2em;
+  font-weight: 700;
+  padding: 1.3em 1em;
+}
+
+.pokeid__move {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  font-size: 1.3em;
+}
+
+.move__list {
+  padding: 0 2em;
+}

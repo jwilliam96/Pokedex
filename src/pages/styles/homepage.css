@@ -1,0 +1,39 @@
+.homepage-container {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5em;
+  width: 100vw;
+}
+
+.homepage_title {
+  font-size: 1.8em;
+  color: #fe1936;
+  text-align: center;
+}
+
+.home_p {
+  font-weight: 600;
+}
+
+.homepage_btn {
+  background-color: #d93f3f;
+  color: white;
+  padding: 1.1em 2.3em;
+  font-size: 0.8em;
+}
+
+.homepage_input {
+  box-shadow: 2px 3px 5px;
+  padding: 0.6em;
+  margin-bottom: 4em;
+}
+
+.homepage_footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  object-fit: contain;
+}
