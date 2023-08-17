@@ -1,3 +1,18 @@
 .selectype {
   width: 40%;
 }
+
+@media screen and (max-width: 760px) {
+  .selectype {
+    font-size: 1rem;
+    padding: 0.5em 0;
+    margin: auto;
+    width: 60%;
+  }
+  @media screen and (max-width: 375px) {
+    .selectype {
+      font-size: 0.8rem;
+      width: 60%;
+    }
+  }
+}

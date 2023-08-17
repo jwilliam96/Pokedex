@@ -1,39 +1,68 @@
-.homepage-container {
-  height: 90vh;
+.homepage {
+  height: 100vh;
+  padding: 0.1px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5em;
-  width: 100vw;
+}
+
+.homepage__section {
+  text-align: center;
+  padding-bottom: 6em;
+}
+
+.homepage__header {
+  margin-bottom: 5em;
+}
+.homepage__img {
+  margin: auto;
 }
 
 .homepage_title {
-  font-size: 1.8em;
+  font-size: 3.5em;
   color: #fe1936;
-  text-align: center;
 }
 
-.home_p {
-  font-weight: 600;
+.home_mensanger {
+  font-size: 1.3em;
 }
-
-.homepage_btn {
-  background-color: #d93f3f;
-  color: white;
-  padding: 1.1em 2.3em;
-  font-size: 0.8em;
+.homepage_form {
+  margin: 3em;
+  font-size: 1.5em;
 }
 
 .homepage_input {
-  box-shadow: 2px 3px 5px;
-  padding: 0.6em;
-  margin-bottom: 4em;
+  padding: 12px;
+  box-shadow: 0 2px 1px 0;
 }
-
+.homepage_btn {
+  font-size: 1em;
+  background-color: #d93f3f;
+  color: white;
+  padding: 0.6em 1.6em;
+}
 .homepage_footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
-  object-fit: contain;
+}
+
+@media screen and (max-width: 640px) {
+  .homepage__section {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    font-size: 0.7rem;
+  }
+
+  .homepage_input {
+    padding: 0.7em;
+    font-size: 0.9rem;
+  }
+
+  @media screen and (max-width: 510px) {
+    .homepage_btn {
+      margin: 1em;
+    }
+  }
 }

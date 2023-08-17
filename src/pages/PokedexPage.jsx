@@ -7,12 +7,12 @@ import "./styles/pokedexpage.css";
 
 const PokedexPage = () => {
   const [inputValue, setInputValue] = useState();
-
   const [selectValue, setSelectValue] = useState("allPokemons");
+  const [logingPokemons, setlogingPokemons] = useState(true);
 
   const trainer = useSelector((reducer) => reducer.trainer);
 
-  const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=500";
+  const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=300";
   const [pokemons, getAllPokemons, getPokemonsByType] = useFetch(url);
 
   useEffect(() => {
@@ -28,13 +28,15 @@ const PokedexPage = () => {
   const handleSumit = (e) => {
     e.preventDefault();
     setInputValue(inputSearch.current.value.trim().toLowerCase());
+    setlogingPokemons(false);
+    setSelectValue("allPokemons");
   };
 
   const cbFilter = (pokemon) => pokemon.name.includes(inputValue);
 
   // PAGINACION
   const [currentPage, setCurrentPage] = useState(1);
-  const RESIDENT_PER_PAGE = 28;
+  const RESIDENT_PER_PAGE = 20;
   const arrayPages = [];
   const quantityPages = Math.ceil(pokemons?.results.length / RESIDENT_PER_PAGE);
   for (let i = 1; i <= quantityPages; i++) {
@@ -48,41 +50,60 @@ const PokedexPage = () => {
   }, [selectValue]);
 
   return (
-    <article className="pokedex-container">
-      <header className="pokedex_header">
-        <img className="pokedex_img_title" src="imageTitle.png" alt="" />
-        <img className="pokedex_img_fondo" src="pokepageImg.png" alt="" />
+    <article className="pokedex__article">
+      <header className="header">
+        <img className="header__img--title" src="imageTitle.png" alt="" />
+        <img className="header__img--fondo" src="pokepageImg.png" alt="" />
       </header>
 
-      <section className="pokedex-section">
-        <p className="pokedex_p">
-          <span className="pokedex_span_name">Bienvenido ¡{trainer}!</span> Aquí
-          podras encontrar tu pokemon favorito
+      <section className="section">
+        <p className="pokedex__copy">
+          <span className="pokedex__span--name">Bienvenido ¡{trainer}!</span>{" "}
+          Aquí podras encontrar tu pokemon favorito
         </p>
 
         <div className="content__form">
-          <form className="pokedex_form" onSubmit={handleSumit}>
-            <input className="pokedex_input" type="text" ref={inputSearch} />
-            <button className="pokedex_btn">Search</button>
+          <form className="form" onSubmit={handleSumit}>
+            <input className="form__input" type="text" ref={inputSearch} />
+            <button className="form__btn">Search</button>
           </form>
 
           <SelectType setSelectValue={setSelectValue} />
         </div>
-
-        <div className="pokedex_contentcard">
-          {pokemons?.results
-            .filter(cbFilter)
-            .slice(startCut, endCut)
-            .map((pokemon) => (
-              <PokedexCard key={pokemon.url} url={pokemon.url} />
-            ))}
-        </div>
-        <ul className="flex gap-4 justify-center py-4">
+        <ul className="page">
           {arrayPages.map((page) => (
             <li
               onClick={() => setCurrentPage(page)}
-              className={`p-3 rounded-md cursor-pointer ${
-                page === currentPage && "bg-green-800 text-white font-bold"
+              className={` page__list ${
+                page === currentPage && "page__list--active"
+              }`}
+              key={page}
+            >
+              {page}
+            </li>
+          ))}
+        </ul>
+
+        <div className="container__card">
+          {(logingPokemons &&
+            pokemons?.results
+              .slice(startCut, endCut)
+              .map((pokemon) => (
+                <PokedexCard key={pokemon.url} url={pokemon.url} />
+              ))) ||
+            pokemons?.results
+              .filter(cbFilter)
+              .slice(startCut, endCut)
+              .map((pokemon) => (
+                <PokedexCard key={pokemon.url} url={pokemon.url} />
+              ))}
+        </div>
+        <ul className="page">
+          {arrayPages.map((page) => (
+            <li
+              onClick={() => setCurrentPage(page)}
+              className={` page__list ${
+                page === currentPage && "page__list--active"
               }`}
               key={page}
             >

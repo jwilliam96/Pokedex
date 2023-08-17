@@ -1,71 +1,103 @@
-/* .pokedex-container {
-  
-} */
-
-.pokedex-container {
+.pokedex__article {
   width: 100vw;
 }
 
-.pokedex_header {
+.header {
   position: relative;
 }
 
-.pokedex_img_title {
+.header__img--title {
   position: absolute;
-  max-width: 33%;
-  left: 10%;
+  width: 36%;
+  left: 8%;
   top: 20%;
 }
-.pokedex_img_fondo {
-  width: 100vw;
-}
 
-.pokedex-section {
-  max-width: 1500px;
+.section {
+  width: 80%;
   margin: auto;
 }
-@media (max-width: 1500px) {
-  .pokedex-section {
-    width: 1300px;
-  }
-}
 
-.pokedex_span_name {
+.pokedex__copy {
+  font-size: 1.3rem;
+}
+.pokedex__span--name {
   color: #fe1936;
-  font-size: 2em;
-  font-weight: 600;
-  margin-right: 0.3em;
-}
-
-.pokedex_p {
-  font-weight: 600;
+  font-weight: bold;
+  padding-right: 0.6rem;
+  font-size: 1.6rem;
 }
 
 .content__form {
   display: flex;
-  margin: 3em 0;
+  margin: 3rem 0;
   justify-content: space-between;
 }
 
-.pokedex_form {
+.form {
+  width: 55%;
   display: flex;
-  width: 50%;
-  box-shadow: 2px 2px 5px;
 }
-.pokedex_input {
-  width: 100%;
-  font-size: 1.3em;
+.form__input {
+  flex-grow: 1;
+  box-shadow: 1px 1px 3px -1px rgba(0, 0, 0, 0.542);
 }
-.pokedex_btn {
+.form__btn {
+  font-size: 1.3rem;
   background-color: #d93f3f;
   color: white;
-  padding: 1em 2em;
-  font-size: 1em;
+  padding: 0.6rem 2.3rem;
 }
 
-.pokedex_contentcard {
+.container__card {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   gap: 2em;
+}
+
+.page {
+  display: flex;
+  gap: 1em;
   justify-content: center;
+  flex-wrap: wrap;
+  margin: 2em 0;
+  cursor: pointer;
+}
+
+.page__list {
+  background-color: rgba(35, 114, 35, 0.498);
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  font-weight: bolder;
+}
+.page__list:hover {
+  background-color: rgba(35, 114, 35, 0.762);
+}
+.page__list--active {
+  background-color: rgb(36, 94, 36);
+}
+
+@media screen and (max-width: 760px) {
+  .content__form {
+    flex-direction: column;
+  }
+  .form {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+  @media screen and (max-width: 375px) {
+    .pokedex__span--name {
+      display: block;
+    }
+    .pokedex__copy {
+      text-align: center;
+    }
+    .form__btn {
+      font-size: 0.8rem;
+      padding: 0.5rem 1rem;
+    }
+  }
 }
