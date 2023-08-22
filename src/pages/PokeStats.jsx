@@ -8,7 +8,10 @@ const PokeStats = ({ pokemon }) => {
         <li className="pokeStat__base">{pokemon?.base_stat}</li>
       </ul>
       <div className="pokestat__div ">
-        <div className={`pokestat__fondo w-[${pokemon?.base_stat}%]`}></div>
+        <div
+          className={`pokestat__fondo `}
+          style={{ width: `${100 / (150 / pokemon?.base_stat)}%` }}
+        ></div>
       </div>
     </article>
   );

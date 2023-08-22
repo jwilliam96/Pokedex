@@ -6,15 +6,16 @@ import SelectType from "../components/SelectType";
 import "./styles/pokedexpage.css";
 
 const PokedexPage = () => {
-  const [inputValue, setInputValue] = useState();
+  const [visiblePageNumbers, setVisiblePageNumbers] = useState([]);
+  const [inputValue, setInputValue] = useState("");
   const [selectValue, setSelectValue] = useState("allPokemons");
   const [logingPokemons, setlogingPokemons] = useState(true);
 
   const trainer = useSelector((reducer) => reducer.trainer);
 
-  const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=300";
+  const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=1200";
   const [pokemons, getAllPokemons, getPokemonsByType] = useFetch(url);
-
+  const cbFilter = (pokemon) => pokemon.name.includes(inputValue);
   useEffect(() => {
     if (selectValue === `allPokemons`) {
       getAllPokemons();
@@ -32,18 +33,45 @@ const PokedexPage = () => {
     setSelectValue("allPokemons");
   };
 
-  const cbFilter = (pokemon) => pokemon.name.includes(inputValue);
-
   // PAGINACION
   const [currentPage, setCurrentPage] = useState(1);
-  const RESIDENT_PER_PAGE = 20;
+  const [residentPerPage, setresidentPerPage] = useState(20);
+  const totalCard = pokemons?.results.filter(cbFilter).length;
   const arrayPages = [];
-  const quantityPages = Math.ceil(pokemons?.results.length / RESIDENT_PER_PAGE);
+  const quantityPages = Math.ceil(totalCard / residentPerPage);
   for (let i = 1; i <= quantityPages; i++) {
     arrayPages.push(i);
   }
-  const startCut = currentPage * RESIDENT_PER_PAGE - RESIDENT_PER_PAGE;
-  const endCut = currentPage * RESIDENT_PER_PAGE;
+  useEffect(() => {
+    setVisiblePageNumbers(arrayPages.slice(0, 4));
+  }, [residentPerPage, totalCard]);
+
+  const startCut = currentPage * residentPerPage - residentPerPage;
+  const endCut = currentPage * residentPerPage;
+
+  const handleIncrement = () => {
+    const incrementPage = currentPage + 1;
+    if (currentPage < arrayPages.length) {
+      if (
+        !visiblePageNumbers.includes(incrementPage) &&
+        incrementPage <= arrayPages.length
+      ) {
+        const starIndex = arrayPages.indexOf(incrementPage) - 3;
+        setVisiblePageNumbers(arrayPages.slice(starIndex, starIndex + 4));
+      }
+      setCurrentPage(incrementPage);
+    }
+  };
+  const handleDecrement = () => {
+    const decrementPage = currentPage - 1;
+    if (currentPage > 1) {
+      if (!visiblePageNumbers.includes(decrementPage) && decrementPage > 0) {
+        const starIndex = arrayPages.indexOf(decrementPage);
+        setVisiblePageNumbers(arrayPages.slice(starIndex, starIndex + 4));
+      }
+      setCurrentPage(decrementPage);
+    }
+  };
 
   useEffect(() => {
     setCurrentPage(1);
@@ -70,8 +98,15 @@ const PokedexPage = () => {
 
           <SelectType setSelectValue={setSelectValue} />
         </div>
+
+        {/* PAGINACION */}
         <ul className="page">
-          {arrayPages.map((page) => (
+          <li>
+            <button className="btn__page" onClick={handleDecrement}>
+              &#60;
+            </button>
+          </li>
+          {visiblePageNumbers.map((page) => (
             <li
               onClick={() => setCurrentPage(page)}
               className={` page__list ${
@@ -82,24 +117,30 @@ const PokedexPage = () => {
               {page}
             </li>
           ))}
+
+          <li>
+            <button className="btn__page " onClick={handleIncrement}>
+              {">"}
+            </button>
+          </li>
         </ul>
 
         <div className="container__card">
-          {(logingPokemons &&
-            pokemons?.results
-              .slice(startCut, endCut)
-              .map((pokemon) => (
-                <PokedexCard key={pokemon.url} url={pokemon.url} />
-              ))) ||
-            pokemons?.results
-              .filter(cbFilter)
-              .slice(startCut, endCut)
-              .map((pokemon) => (
-                <PokedexCard key={pokemon.url} url={pokemon.url} />
-              ))}
+          {pokemons?.results
+            .filter(cbFilter)
+            .map((pokemon) => (
+              <PokedexCard key={pokemon.url} url={pokemon.url} />
+            ))
+            .slice(startCut, endCut)}
         </div>
+
         <ul className="page">
-          {arrayPages.map((page) => (
+          <li>
+            <button className="btn__page" onClick={handleDecrement}>
+              &#60;
+            </button>
+          </li>
+          {visiblePageNumbers.map((page) => (
             <li
               onClick={() => setCurrentPage(page)}
               className={` page__list ${
@@ -110,6 +151,14 @@ const PokedexPage = () => {
               {page}
             </li>
           ))}
+          <li>
+            <button
+              className="btn__page btn__page--active"
+              onClick={handleIncrement}
+            >
+              {">"}
+            </button>
+          </li>
         </ul>
       </section>
     </article>
