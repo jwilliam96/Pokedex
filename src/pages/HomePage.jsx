@@ -1,12 +1,10 @@
 import { useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setTrainerG } from "../store/slices/trainer.slice";
 import { useNavigate } from "react-router-dom";
 import "./styles/homepage.css";
 
 const HomePage = () => {
-  const trainer = useSelector((reducer) => reducer.trainer);
-
   const inputTrainer = useRef();
 
   const dispatch = useDispatch();
