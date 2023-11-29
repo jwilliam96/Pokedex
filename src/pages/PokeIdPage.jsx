@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import useFetch from "../hook/useFetch";
 import { useEffect } from "react";
 import "./styles/pokeIdpage.css";
+import "./styles/pokeidPage_Colors.css";
 import "../components/styles/Pokecard.css";
 import PokeStats from "./PokeStats";
 
@@ -28,15 +29,17 @@ const PokeIdPage = () => {
           <img className="pokeid_img_fondo" src="pokepageImg.png" alt="" />
         </header>
       </header>
-
-      <section className="pokeid__section mt-20 lg:mt-36">
-        <figure className="pokeid__header h-32 ss:h-40 lg:h-64">
+      <section
+        className={`pokeid__section mt-20 lg:mt-36 ${pokemon?.types[0]?.type.name}-border`}
+      >
+        <figure className={`pokeid__header h-32 ss:h-40 lg:h-64 `}>
           <img
             className="card__header_img w-1/2 ss:w-[35%]"
             src={pokemon?.sprites.other["official-artwork"].front_default}
             alt=""
           />
-          <div className="div__header" />
+
+          <div className={`div__header ${pokemon?.types[0]?.type.name}`} />
         </figure>
         <div className="div__section-primary">
           <span
@@ -111,7 +114,9 @@ const PokeIdPage = () => {
         </div>
       </section>
 
-      <section className="pokeid__section my-28 h-96 overflow-scroll md:h-[500px]">
+      <section
+        className={`pokeid__section my-28 h-96 overflow-scroll md:h-[500px]  `}
+      >
         <div className="w-[90%] m-auto md:w-[80%]">
           <div className="flex items-center gap-4">
             <h2 className="font-bold text-2xl sm:text-4xl py-10">Movements</h2>

@@ -34,12 +34,12 @@
 
 .div__header {
   height: 100%;
-  background: linear-gradient(
+  /* background: linear-gradient(
     178.92deg,
     #7ec6c5 0.92%,
     #abdac6 47.96%,
     #cae099 99.08%
-  );
+  ); */
   border-radius: 4px 4px 0px 0px;
 }
 
