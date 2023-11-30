@@ -86,8 +86,8 @@ const PokedexPage = () => {
 
       <section className="section">
         <p className="pokedex__copy">
-          <span className="pokedex__span--name">Bienvenido ¡{trainer}!</span>{" "}
-          Aquí podras encontrar tu pokemon favorito
+          <span className="pokedex__span--name">Welcome ¡{trainer}!</span> here
+          you could find your favorite pokemon.
         </p>
 
         <div className="content__form">
