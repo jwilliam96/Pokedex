@@ -42,7 +42,11 @@
   ); */
   border-radius: 4px 4px 0px 0px;
 }
-
+.icon-flecha {
+  transform: translate(0, 20%);
+  color: rgb(243, 239, 239);
+  text-shadow: 2px 2px 4px black;
+}
 .card__header_img {
   position: absolute;
   left: 50%;

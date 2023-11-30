@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import useFetch from "../hook/useFetch";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./styles/pokeIdpage.css";
 import "./styles/pokeidPage_Colors.css";
 import "../components/styles/Pokecard.css";
@@ -8,8 +8,18 @@ import PokeStats from "./PokeStats";
 
 const PokeIdPage = () => {
   const { id } = useParams();
+  const [changeId, setChangeId] = useState(parseInt(id));
 
-  const url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
+  const url = `https://pokeapi.co/api/v2/pokemon/${changeId}/`;
+
+  const handleIncrement = () => {
+    setChangeId(changeId + 1);
+  };
+  const handleDecrement = () => {
+    if (changeId > 1) {
+      setChangeId(changeId - 1);
+    }
+  };
 
   const [pokemon, getSinglePokemon] = useFetch(url);
 
@@ -17,7 +27,7 @@ const PokeIdPage = () => {
 
   useEffect(() => {
     getSinglePokemon();
-  }, [id]);
+  }, [changeId]);
 
   return (
     <article className="pokeid-content">
@@ -38,14 +48,22 @@ const PokeIdPage = () => {
             src={pokemon?.sprites.other["official-artwork"].front_default}
             alt=""
           />
-
-          <div className={`div__header ${pokemon?.types[0]?.type.name}`} />
+          <div className={`div__header ${pokemon?.types[0]?.type.name} `}>
+            <i
+              onClick={handleDecrement}
+              className="bx bxs-chevrons-left absolute text-[80px] icon-flecha"
+            ></i>
+            <i
+              onClick={handleIncrement}
+              className="bx bxs-chevrons-right absolute right-2 text-[80px] icon-flecha"
+            ></i>
+          </div>
         </figure>
         <div className="div__section-primary">
           <span
             className={`pokeid__id font-bold text-2xl md:text-4xl ${colorName}-color`}
           >
-            #{pokemon?.id}
+            # {changeId}
           </span>
 
           <div className="text-2xl my-8 sm:flex w-full items-center sm:gap-6">
