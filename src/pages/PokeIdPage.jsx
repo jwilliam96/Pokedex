@@ -51,11 +51,11 @@ const PokeIdPage = () => {
           <div className={`div__header ${pokemon?.types[0]?.type.name} `}>
             <i
               onClick={handleDecrement}
-              className="bx bxs-chevrons-left absolute text-[80px] icon-flecha"
+              className="bx bxs-chevrons-left absolute icon-flecha text-[80px] ss:text-[100px] lg:text-[160px] lg:left-20"
             ></i>
             <i
               onClick={handleIncrement}
-              className="bx bxs-chevrons-right absolute right-2 text-[80px] icon-flecha"
+              className="bx bxs-chevrons-right absolute right-2 icon-flecha text-[80px] ss:text-[100px] lg:text-[160px] lg:right-20"
             ></i>
           </div>
         </figure>
@@ -63,7 +63,7 @@ const PokeIdPage = () => {
           <span
             className={`pokeid__id font-bold text-2xl md:text-4xl ${colorName}-color`}
           >
-            # {changeId}
+            # <span>{changeId}</span>
           </span>
 
           <div className="text-2xl my-8 sm:flex w-full items-center sm:gap-6">

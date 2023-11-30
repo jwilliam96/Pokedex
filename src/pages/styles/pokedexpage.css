@@ -58,17 +58,18 @@
 
 .page {
   display: flex;
-  gap: 1em;
+  gap: 0.6em;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   margin: 2em 0;
   cursor: pointer;
 }
 
 .page__list {
-  background-color: rgba(35, 114, 35, 0.498);
+  background-color: #d93f3f89;
   color: white;
-  padding: 1rem;
+  padding: 1em;
   border-radius: 10px;
   font-weight: bolder;
 }
@@ -76,12 +77,13 @@
   background-color: rgba(35, 114, 35, 0.762);
 }
 .page__list--active {
-  background-color: rgb(36, 94, 36);
+  background-color: #d93f3f;
 }
 .btn__page {
   height: 100%;
-  font-size: 2.5rem;
-  color: #245e24;
+  font-size: 3rem;
+  color: #d93f3f;
+  font-weight: bold;
   background-color: transparent;
 }
 
