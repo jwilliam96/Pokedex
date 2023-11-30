@@ -13,7 +13,7 @@ const PokedexPage = () => {
 
   const trainer = useSelector((reducer) => reducer.trainer);
 
-  const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=1200";
+  const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10263";
   const [pokemons, getAllPokemons, getPokemonsByType] = useFetch(url);
   const cbFilter = (pokemon) => pokemon.name.includes(inputValue);
   useEffect(() => {
