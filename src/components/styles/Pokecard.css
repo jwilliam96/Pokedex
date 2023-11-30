@@ -61,20 +61,21 @@
 .pokecard_stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
+  justify-items: center;
   gap: 1.5em 0.2em;
 }
 
 .pokecard_stat {
   display: grid;
   gap: 0.5em;
-  justify-items: center;
+  place-items: center;
 }
 
 .pokecard_stat_name {
   font-size: 0.7em;
   font-style: 300;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .pokecard_stat_value {
