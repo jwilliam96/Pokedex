@@ -21,5 +21,5 @@
 }
 
 .pokeStat__base::after {
-  content: " / 150";
+  content: " / 200";
 }
